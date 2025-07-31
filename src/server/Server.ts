@@ -1,12 +1,14 @@
 import express from 'express';
+import 'dotenv/config';
+
+import './shared/services/TranslationsYup';
+import router from './routes/index.js';
 
 const server = express();
+server.use(express.json());
 
-server.get('/', (req, res) => {
+server.use(router);
 
-    return res.send('Hello, world!');
-
-})
 
 export {server};
 
