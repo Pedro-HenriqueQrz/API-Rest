@@ -11,7 +11,7 @@ interface ICidade {
 // Validação da estrutura
 export const createValidation = validation((getSchema) => ({
 body: getSchema<ICidade>(yup.object().shape({
-    nome: yup.string().required().min(3),
+    nome: yup.string().strict().required().min(3).max(150).trim(),
 })),
 }));
 
@@ -19,6 +19,6 @@ body: getSchema<ICidade>(yup.object().shape({
 export const create: RequestHandler = async (req: Request<{}, {}, ICidade>, res: Response) => {
     console.log(req.body)
 
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Não implementado');
+    return res.status(StatusCodes.CREATED).json(1);
 
 };

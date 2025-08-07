@@ -14,8 +14,8 @@ interface IQuereyProps {
 export const getAllValidation = validation((getSchema) => ({
 query: getSchema<IQuereyProps>(yup.object().shape({
     page: yup.number().optional().moreThan(0),
-    limit: yup.number().optional().moreThan(0),
-    filter: yup.string().optional(),
+    limit: yup.number().optional().moreThan(0).max(100),
+    filter: yup.string().optional().min(3),
 })),
 }));
 
