@@ -44,3 +44,6 @@ setLocale({
         length: 'O campo deve conter exatamente ${length} itens',
     },
 });
+
+// Exportação vazia para garantir que o módulo seja incluído na compilação
+export {};
